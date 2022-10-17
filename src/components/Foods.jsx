@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Db } from "../db/Db";
+import { Link } from "react-router-dom";
+import ItemDetail from "../container/itemDetail";
 
 const Foods = () => {
   const [foods, setFoods] = useState(Db);
@@ -31,19 +33,34 @@ const Foods = () => {
           <p className="font-bold text-gray-700">Filter Type</p>
 
           <div className="flex justify-between flex-wrap">
-            <button onClick={()=>setFoods(Db)} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => setFoods(Db)}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               All
             </button>
-            <button onClick={()=>filterCategory('burger') } className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterCategory("burger")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Burgers
             </button>
-            <button onClick={()=>filterCategory('pizza')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterCategory("pizza")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Pizza
             </button>
-            <button onClick={()=>filterCategory('salad')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterCategory("salad")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Salads
             </button>
-            <button onClick={()=>filterCategory('chicken')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterCategory("chicken")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               Chicken
             </button>
           </div>
@@ -52,16 +69,28 @@ const Foods = () => {
         <div className="m-3">
           <p className="font-bold text-gray-700">Filter Price</p>
           <div className="felx justify-between max-w-[390px] w-full">
-            <button onClick={()=>filterPrice('$')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterPrice("$")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               $
             </button>
-            <button onClick={()=>filterPrice('$$')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterPrice("$$")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               $$
             </button>
-            <button  onClick={()=>filterPrice('$$$')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterPrice("$$$")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               $$$
             </button>
-            <button onClick={()=>filterPrice('$$$$')} className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white">
+            <button
+              onClick={() => filterPrice("$$$$")}
+              className="m-1 rounded-md px-1 text-orange-600 border-orange-600 hover:bg-orange-600 hover:text-white"
+            >
               $$$$
             </button>
           </div>
@@ -87,9 +116,17 @@ const Foods = () => {
                 </span>
               </p>
             </div>
+            <div className="flex justify-center">
+              <Link to={`/detalles/${item.id}`}>
+                <button
+                  type="button"
+                  className=" bg-red-900 flex justify-center gap-2  lg:px-2 lg:py-1 text-white rounded-md shadow-md w-full text-center mt-3 mb-3 font-bold">Ver mas</button>
+              </Link>
+            </div>
           </div>
         ))}
       </div>
+      
     </div>
   );
 };

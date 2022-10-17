@@ -9,6 +9,7 @@ import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserFriends } from "react-icons/fa";
 import { MdFavorite, MdHelp } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [nav, SetNav] = useState(false);
@@ -21,8 +22,9 @@ const NavBar = () => {
             onClick={()=> SetNav(!nav)}
             size={25} />
         </div>
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2 font-bold mr-4">Delizia</h1>
-
+        <Link to='/'>
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl px-2 font-bold mr-4">Delizia</h1>
+        </Link>
         <div className="  hidden lg:flex items-center bg-gray-200 rounded-full p-1 text-[14px">
           <p className="bg-black text-white rounded-full p-1">Delivery</p>
           <p className=" p-1">Pickup</p>
