@@ -7,7 +7,20 @@ const ItemDetail = () => {
   const [products, setProduct] = useState([]);
   const { id } = useParams();
 
+  const Fetch = (Db) => {
+
+    return new Promise((resolve, reject) =>{
+
+        setTimeout(() => {
+
+            resolve(Db);
+
+        },2000)
+    })
+}
+
   useEffect(() => {
+
     const result = Db.filter((element) => element.id == id);
 
     setProduct(result);
