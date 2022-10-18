@@ -2,7 +2,7 @@ import { FrontPage } from "./components/FrontPage";
 import NavBar from "./components/NavBar";
 import ConteinersCards from "./components/ConteinerCards";
 import Foods from "./components/Foods";
-import ItemDetail from "./container/itemDetail";
+import ItemDetail from "./container/ItemDetail";
 import { Route, Routes } from "react-router-dom";
 import Cart from "./components/Cart";
 import MyProvider from "./context/MyProvider";
