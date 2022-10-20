@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Db } from "../db/Db";
 import { Link } from "react-router-dom";
-import ItemDetail from "../container/itemDetail";
+import { useContext } from "react";
+import { context } from "../context/MyProvider";
 
 const Foods = () => {
+  const { search, setSearch } = useContext(context);
   const [foods, setFoods] = useState(Db);
+
+  useEffect(() => {
+    if (!search) {
+      setFoods(Db);
+    } else {
+      setFoods(
+        Db.filter((item) => {
+          return item.name.toLowerCase().includes(search.toLowerCase());
+        })
+      );
+    }
+  }, [search]);
 
   const filterCategory = (category) => {
     setFoods(
@@ -112,7 +126,7 @@ const Foods = () => {
               <p className="font-bold">{item.name}</p>
               <p>
                 <span className="bg-orange-500 text-white p-1 rounded-full">
-                  $  {item.price}
+                  $ {item.price}
                 </span>
               </p>
             </div>
@@ -120,13 +134,15 @@ const Foods = () => {
               <Link to={`/detalles/${item.id}`}>
                 <button
                   type="button"
-                  className=" bg-red-900 flex justify-center gap-2  lg:px-2 lg:py-1 text-white rounded-md shadow-md w-full text-center mt-3 mb-3 font-bold">Ver mas</button>
+                  className=" bg-red-900 flex justify-center gap-2  lg:px-2 lg:py-1 text-white rounded-md shadow-md w-full text-center mt-3 mb-3 font-bold"
+                >
+                  Ver mas
+                </button>
               </Link>
             </div>
           </div>
         ))}
       </div>
-      
     </div>
   );
 };
