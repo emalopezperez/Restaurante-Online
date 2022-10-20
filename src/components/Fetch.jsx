@@ -1,4 +1,4 @@
-export const Fetch = (Db) => {
+const Fetch = (Db) => {
 
   return new Promise((resolve, reject) =>{
 
@@ -9,3 +9,5 @@ export const Fetch = (Db) => {
       },2000)
   })
 }
+
+export default Fetch;

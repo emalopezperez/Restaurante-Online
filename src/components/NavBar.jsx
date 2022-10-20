@@ -3,13 +3,13 @@ import {
   AiOutlineMenu,
   AiOutlineSearch,
   AiOutlineClose,
-  AiFillTag,
 } from "react-icons/ai";
 import { BsFillCartFill, BsFillSaveFill } from "react-icons/bs";
 import { TbTruckDelivery } from "react-icons/tb";
 import { FaUserFriends } from "react-icons/fa";
 import { MdFavorite, MdHelp } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Cart from '../components/Cart'
 
 const NavBar = () => {
   const [nav, SetNav] = useState(false);
@@ -39,11 +39,12 @@ const NavBar = () => {
           placeholder="Search foods"
         />
       </div>
-
-      <button className="bg-black text-white hidden md:flex items-center py-1 px-2 rounded-xl">
-        <BsFillCartFill className="mr-2" size={20} />
-        Cart
-      </button>
+      <Link to='/category/Cart'>
+        <button className="bg-black text-white hidden md:flex items-center py-1 px-2 rounded-xl">
+          <BsFillCartFill className="mr-2" size={20} />
+          Cart
+        </button>
+      </Link>
       {nav ? (
         <div className="bg-black/80 fixed w-full h-screen z-10 top-0 left-0"></div>
       ) : (
@@ -65,10 +66,10 @@ const NavBar = () => {
         <h2 className="text-2xl p-4 font-bold">Delizia</h2>
         <nav>
           <ul className="flex flex-col p-4 text-gray-800">
-            <li className="text-xl py-4 flex">
+            <Link to='/category/Cart' className="text-xl py-4 flex">
               <TbTruckDelivery className="mr-3" size={25} />
               Orders
-            </li>
+            </Link>
             <li className="text-xl py-4 flex">
               <MdFavorite className="mr-3" size={25} />
               Favorites

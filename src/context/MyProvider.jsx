@@ -30,6 +30,19 @@ const MyProvider = ({ children }) => {
     return cartList.reduce((acc, x) => (acc += x.cantidad), 0);
   };
 
+  const eliminarProductos = (id) =>{
+    return setCartList(cartList.filter((producto) => producto.id !== id));
+  }
+
+  const ObtenerTotalPrecio = () => {
+    return cartList.reduce((acc, x) => (acc += x.price * x.cantidad), 0);
+  };
+
+  const vaciarCart = () =>{
+    setCartList([])
+  }
+
+
   return (
     <context.Provider
       value={{
@@ -37,6 +50,9 @@ const MyProvider = ({ children }) => {
         agregarProducto,
         verificarProductoExistente,
         cartList,
+        eliminarProductos,
+        ObtenerTotalPrecio,
+        vaciarCart
       }}
     >
       {children}

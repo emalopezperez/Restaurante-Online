@@ -58,9 +58,9 @@ const Item = ({ producto }) => {
                 </span>
               </div>
               <div>
-                <h1 className="text-2xl  lg:text-3xl text-center text-black">
-                  <li key={producto.name}>{producto.name}</li>
-                </h1>
+                <div className="text-2xl  lg:text-3xl text-center text-black">
+                  <h2 key={producto.name}>{producto.name}</h2>
+                </div>
               </div>
 
               <div className=" felx justify-center p-2 bg-gray-100  border-black">
@@ -85,7 +85,7 @@ const Item = ({ producto }) => {
               </div>
               <div>
                 <p className="text-2xl mb-18">
-                  <li key={producto.price}>$ {producto.precio}</li>
+                  <p key={producto.price}>$ {producto.price}</p>
                 </p>
               </div>
             </form>

@@ -1,10 +1,9 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { context } from "../context/MyProvider";
 
 const Cart = () => {
-  const { cartList } = useContext(context);
-
-  console.log(cartList);
+  const { cartList, eliminarProductos, ObtenerTotalPrecio, vaciarCart } =
+    useContext(context);
 
   return (
     <>
@@ -20,14 +19,22 @@ const Cart = () => {
         </div>
 
         <div className=" mt-12">
-          <button className="  px-2 btn-Limpiar bg-teal-900 ">
+          <button
+            onClick={() => {
+              vaciarCart();
+            }}
+            className="  px-2 btn-Limpiar bg-teal-900 "
+          >
             Vaciar carrito
           </button>
         </div>
       </div>
       {cartList.map((elemento, index) => {
         return (
-          <div className="shadow p-5 mt-10 mb-3 flex lg:gap-2 gap-10 items-center">
+          <div
+            key={index}
+            className="shadow p-5 mt-10 mb-3 flex lg:gap-2 gap-10 items-center"
+          >
             <div className="md:w-1/6">
               <img
                 width={300}
@@ -49,6 +56,9 @@ const Cart = () => {
 
             <div>
               <button
+                onClick={(id) => {
+                  eliminarProductos(elemento.id);
+                }}
                 type="button"
                 className="hover:bg-slate-200 flex gap-2  lg:px-5 lg:py-2 text-black rounded-md  uppercase shadow-md w-full text-center mt-3"
               >
