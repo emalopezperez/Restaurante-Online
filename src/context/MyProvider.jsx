@@ -4,7 +4,6 @@ export const context = createContext();
 
 const MyProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
-
   const [search, setSearch] = useState("");
 
   const searcher = (e) => {

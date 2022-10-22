@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { context } from "../context/MyProvider";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cartList, eliminarProductos, ObtenerTotalPrecio, vaciarCart } =
@@ -8,7 +9,7 @@ const Cart = () => {
   return (
     <>
       <div className="flex flex-col">
-        <div className="Informacion-Cart italic">
+        <div className=" Informacion-Cart italic text-center mt-6">
           <h2 className=" text-black text-2xl lg:text-4xl italic">
             Informacion importante
           </h2>
@@ -18,12 +19,12 @@ const Cart = () => {
           </p>
         </div>
 
-        <div className=" mt-12">
+        <div className=" mt-12 m-3 ">
           <button
             onClick={() => {
               vaciarCart();
             }}
-            className="  px-2 btn-Limpiar bg-teal-900 "
+            className="  px-2 btn-Limpiar bg-teal-500 "
           >
             Vaciar carrito
           </button>
@@ -37,8 +38,8 @@ const Cart = () => {
           >
             <div className="md:w-1/6">
               <img
-                width={300}
-                height={400}
+                width={150}
+                height={20}
                 alt="imagen del producto"
                 src={elemento.image}
               />
@@ -81,10 +82,16 @@ const Cart = () => {
           </div>
         );
       })}
-      <div className="flex justify-center lg:mt-5  mt-0 py-2">
-        <button className="bg-red-900 rounded-full  text-lg text-white m-8 px-8">
-          Confirmar
-        </button>
+
+      <div className="flex justify-evenly  lg:mt-5  mt-0 py-2">
+        <p className="mt-10 text-gray-600 ">
+          Total: $<span className="">{ObtenerTotalPrecio()}</span>
+        </p>
+        <Link to="/category/registro">
+          <button className="bg-red-900 rounded-full  text-lg text-white m-8 px-8">
+            Confirmar
+          </button>
+        </Link>
       </div>
     </>
   );

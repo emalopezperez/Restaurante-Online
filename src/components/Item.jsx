@@ -54,7 +54,7 @@ const Item = ({ producto }) => {
             <form className="space-y-4 lg:pt-8 border-black">
               <div>
                 <span className="text-xs text-stone-400">
-                  Nuevo | 2 vendidos
+                  Stock en tienda | 2
                 </span>
               </div>
               <div>
@@ -107,12 +107,13 @@ const Item = ({ producto }) => {
             <div className="prose max-w-none">
               <p></p>
               <p>
+                {producto.descripcion}
                 Ligero y compacto, luce una nueva apariencia elegante que se
                 adapta perfectamente a su estilo de vida . Lorem ipsum dolor sit
                 amet consectetur adipisicing elit. Modi eveniet ipsam mollitia
                 nesciunt illo! Suscipit, corrupti! Lorem ipsum dolor sit amet
                 consectetur, adipisicing elit. Animi accusamus sint excepturi
-                facilis accusantium laborum fuga sit
+                facilis accusantium laborum fuga sit.
               </p>
             </div>
           </div>
