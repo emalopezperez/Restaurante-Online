@@ -63,17 +63,13 @@ const NavBar = () => {
           className="absolute right-4 top-4 cursor-pointer"
           size={30}
         />
-        <h2 className="text-2xl p-4 font-bold">Delizia</h2>
+        <h2 className="text-3xl p-4 font-bold">Delizia</h2>
         <nav>
           <ul className="flex flex-col p-4 text-gray-800">
             <Link to="/category/Cart" className="text-xl py-4 flex">
               <TbTruckDelivery className="mr-3" size={25} />
               Orders
             </Link>
-            <li className="text-xl py-4 flex">
-              <MdFavorite className="mr-3" size={25} />
-              Favorites
-            </li>
             <li className="text-xl py-4 flex">
               <MdHelp className="mr-3" size={25} />
               Help

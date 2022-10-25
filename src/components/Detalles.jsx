@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Item from "./Item";
 
 const Detalles = ({ products }) => {

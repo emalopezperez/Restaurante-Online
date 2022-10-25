@@ -1,11 +1,13 @@
 import { useContext } from "react";
 import { context } from "../context/MyProvider";
 import { Link } from "react-router-dom";
+import CartVacio from "../utils/CartVacio";
 
 const Cart = () => {
   const { cartList, eliminarProductos, ObtenerTotalPrecio, vaciarCart } =
     useContext(context);
 
+if (cartList.length > 0) {   
   return (
     <>
       <div className="flex flex-col">
@@ -95,6 +97,12 @@ const Cart = () => {
       </div>
     </>
   );
+  }
+  return(
+    <>
+      <CartVacio/>
+    </>
+  ) 
 };
 
 export default Cart;

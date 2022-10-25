@@ -53,12 +53,12 @@ const Item = ({ producto }) => {
           <div className="lg:top-0 lg:sticky text-black">
             <form className="space-y-4 lg:pt-8 border-black">
               <div>
-                <span className="text-xs text-stone-400">
-                  Stock en tienda | 2
+                <span className="text-sm text-stone-400">
+                  Stock en tienda | {producto.stock}
                 </span>
               </div>
               <div>
-                <div className="text-2xl  lg:text-3xl text-center text-black">
+                <div className="text-2xl  lg:text-3xl text-center text-black mb-10">
                   <h2 key={producto.name}>{producto.name}</h2>
                 </div>
               </div>
@@ -84,7 +84,7 @@ const Item = ({ producto }) => {
                 </p>
               </div>
               <div>
-                <p className="text-2xl mb-18">
+                <p className="flex justify-center text-gray-600 text-3xl mt-10 mb-10">
                   <p key={producto.price}>$ {producto.price}</p>
                 </p>
               </div>
